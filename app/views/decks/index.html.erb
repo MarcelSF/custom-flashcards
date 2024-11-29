@@ -1,1 +1,6 @@
 <h1>Your decks</h1>
+
+<% if @decks.any? %>
+<% else %>
+  You have no decks yet. <%= link_to "Create one", new_deck_path %>.
+<% end %>
