@@ -22,8 +22,8 @@
             <%= image_tag "https://www.meisterdrucke.ie/kunstwerke/1260px/George_Hum_-_Alberto_Santos-Dumont_Brazilian_aviation_pioneer_1901_-_%28MeisterDrucke-738873%29.jpg", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "New deck", new_deck_path, class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "New Deck", new_deck_path, class: "dropdown-item" %>
+              <%= link_to "New Flashcard", new_flashcard_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
