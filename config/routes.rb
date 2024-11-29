@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :decks
+  resources :decks do
+    resources :deck_flashcards, only: [:new, :create]
+  end
+
   resources :flashcards
 end

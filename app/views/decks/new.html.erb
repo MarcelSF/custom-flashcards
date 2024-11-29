@@ -1,6 +1,6 @@
 <h1>Name your deck</h1>
 
-<% simple_form_for @deck do |f| %>
+<%= simple_form_for @deck do |f| %>
   <%= f.input :name %>
   <%= f.submit "Create deck" %>
 <% end %>

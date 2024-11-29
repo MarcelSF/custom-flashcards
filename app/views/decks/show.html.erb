@@ -1,0 +1,6 @@
+<h1><%= @deck.name %></h1>
+
+<% if @deck.flashcards.any? %>
+<% else %>
+  You have no flashcards yet. <%= link_to "Create one", new_deck_deck_flashcard_path(@deck) %>.
+<% end %>

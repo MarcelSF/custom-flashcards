@@ -10,9 +10,13 @@ class DeckPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+  end
 
-    def new?
-      true
-    end
+  def show?
+    record.user == user
+  end
+
+  def new?
+    true
   end
 end
