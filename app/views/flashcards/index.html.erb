@@ -1,0 +1,31 @@
+<div class="d-flex align-items-center justify-space-between">
+  <h1 class="mr-3">Your flashcards</h1>
+  <%= link_to "Create a new flashcard", new_flashcard_path, class: "btn btn-primary" %> 
+</div>
+
+<% if @flashcards.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Slug</th>
+        <th>Difficulty</th>
+        <th>Front</th>
+        <th>Back</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @flashcards.each do |flashcard| %>
+        <tr>
+          <td><%= flashcard.slug %></td>
+          <td><%= flashcard.difficulty %></td>
+          <td><%= flashcard.front %></td>
+          <td><%= flashcard.back %></td>
+          <td><%= link_to "Show", flashcard %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  You have no flashcards yet. <%= link_to "Create one", new_flashcard_path %>.
+<% end %>

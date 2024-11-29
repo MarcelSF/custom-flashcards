@@ -15,11 +15,19 @@ class FlashcardsController < ApplicationController
 
   def create
     @flashcard = Flashcard.new(flashcard_params)
+    authorize @flashcard
+
     @flashcard.user = current_user
     if @flashcard.save
       redirect_to flashcard_path(@flashcard)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def flashcard_params
+    params.require(:flashcard).permit(:front, :back, :slug, :difficulty)
   end
 end
