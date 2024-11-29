@@ -15,6 +15,7 @@ class DecksController < ApplicationController
 
   def create 
     @deck = Deck.new(deck_params)
+    authorize @deck
     @deck.user = current_user
     if @deck.save
       redirect_to deck_path(@deck)
