@@ -1,4 +1,4 @@
-class DeckPolicy < ApplicationPolicy
+class DeckFlashcardPolicy < ApplicationPolicy
   # NOTE: Up to Pundit v2.3.1, the inheritance was declared as
   # `Scope < Scope` rather than `Scope < ApplicationPolicy::Scope`.
   # In most cases the behavior will be identical, but if updating existing
@@ -10,21 +10,5 @@ class DeckPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
-  end
-
-  def show?
-    record.user == user
-  end
-
-  def new?
-    true
-  end
-
-  def create?
-    new?
-  end
-
-  def edit?
-    record.user == user
   end
 end

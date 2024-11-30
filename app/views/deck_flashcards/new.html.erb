@@ -1,0 +1,7 @@
+<%= simple_form_for [@deck, @deck_flashcard] do |f| %>
+  <%= f.input :flashcard_id, collection: @flashcards.map { |fc| ["#{fc.slug} (#{fc.difficulty})", fc.id] }, 
+              label_method: :first, 
+              value_method: :second, 
+              prompt: "Select a flashcard" %>
+  <%= f.button :submit, "Add card to deck", class: "btn btn-primary" %>
+<% end %>
