@@ -1,14 +1,12 @@
 class DeckFlashcardsController < ApplicationController
-  before_action :set_flashcards, only: %i[new create]
+  before_action :set_deck_and_flashcards, only: %i[new create]
 
   def new
-    @deck = Deck.find(params[:deck_id])
     @deck_flashcard = DeckFlashcard.new
     authorize @deck, :edit?
   end
 
   def create
-    @deck = Deck.find(params[:deck_id])
     authorize @deck, :edit?
     @deck_flashcard = DeckFlashcard.new(deck_flashcard_params)
     @deck_flashcard.deck = @deck
@@ -25,7 +23,8 @@ class DeckFlashcardsController < ApplicationController
     params.require(:deck_flashcard).permit(:flashcard_id)
   end
 
-  def set_flashcards
-    @flashcards = current_user.flashcards
+  def set_deck_and_flashcards
+    @deck = Deck.find(params[:deck_id])
+    @flashcards = current_user.flashcards - @deck.flashcards
   end
 end
