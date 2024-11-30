@@ -1,9 +1,15 @@
-<h1 class="mt-3"><%= @deck.name %></h1>
+<div class="d-flex align-items-center justify-content-between">
+  <h1 class="mt-3"><%= @deck.name %></h1>
+  <% if current_user.flashcards.any? %>
+    <%= link_to "Add card to deck", new_deck_deck_flashcard_path(@deck) %>
+  <% end %>
+</div>
+
 
 <% if @deck.flashcards.any? %>
   <% @deck.flashcards.each do |card|  %>
     <%= render "flashcards/flashcard", flashcard: card %>
   <% end %>
-<% else %>
-  You have no flashcards yet. <%= link_to "Create one", new_deck_deck_flashcard_path(@deck) %>.
+<% elsif !current_user.flashcards.any? %>
+  You have no flashcards yet. <%= link_to "Create one", new_flashcard_path(@deck) %>.
 <% end %>

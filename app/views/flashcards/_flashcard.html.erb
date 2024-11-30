@@ -1,17 +1,17 @@
-<div class="flashcard mt-3">
+<div class="flashcard mt-3" data-controller="flashcard">
   <div class="d-flex align-items-center justify-content-between">
     <div class="info">
       <%= flashcard.slug %> - <%= flashcard.difficulty %>
     </div>
     <div class="reveal">
-      <button class="">Reveal</button>
+      <button class="" data-action="click->flashcard#flip">Reveal</button>
     </div>
   </div>
-  <div class="front my-3">
+  <div class="front my-3" data-flashcard-target="front">
     <%= flashcard.front %>
   </div>
 
-  <div class="back">
+  <div class="back blurry-text" data-flashcard-target="back">
     <%= flashcard.back %>
   </div>
 </div>
